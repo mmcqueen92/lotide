@@ -1,18 +1,14 @@
 const eqArrays = function(array1, array2) {
-  let output = false;
   if (array1.length === array2.length) {
     for (let i = 0; i < array1.length; i++) {
-      if (array1[i] === array2[i]) {
-        output = true;
-      } else {
-        output = false;
-        return output;
-      }
+      if (array1[i] !== array2[i]) {
+        return false;
+      } 
     }
   } else {
-    return output;
+    return false;
   }
-  return output;
+  return true;
 };
 
 const assertArraysEqual = function(array1, array2) {
@@ -28,7 +24,7 @@ const middle = function(givenArray) {
     //Array does not have a middle element, return empty array
     return [];
   }
-  if (givenArray.length % 2 === 1) {
+  else if (givenArray.length % 2 === 1) {
     //Odd number of elements, return 1 elements
     return givenArray.slice((Math.floor((givenArray.length - 1) / 2)), ((Math.floor((givenArray.length - 1) / 2)) + 1));
   } else {
