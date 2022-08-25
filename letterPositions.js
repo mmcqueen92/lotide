@@ -26,9 +26,10 @@ const assertArraysEqual = function(array1, array2) {
 const letterPositions = function(sentence) {
   const results = {};
   //create arrayedString from the sentence
-  const arrayedString = [...sentence];
+  // const arrayedString = [...sentence];
   //loop through sentence string
-  for (const [i, v] of arrayedString.entries()) {
+  i = 0;
+  for (const v of sentence) {
     if (v !== ' ') {
       //if a key equal to the current letter exists push the current index to that key's value
       if (results[v]) {
@@ -38,6 +39,7 @@ const letterPositions = function(sentence) {
         results[v] = [i];
       }
     }
+    i++
   }
   return results;
 };
