@@ -27,15 +27,15 @@ const letterPositions = function(sentence) {
   const results = {};
   //create arrayedString from the sentence
   const arrayedString = [...sentence];
-    //loop through sentence string, 
+  //loop through sentence string
   for (const [i, v] of arrayedString.entries()) {
     if (v !== ' ') {
       //if a key equal to the current letter exists push the current index to that key's value
       if (results[v]) {
-        results[v].push(i)
+        results[v].push(i);
       } else {
         //if a key equal to the current letter does not exist, create one with an array containing the current index as the value
-        results[v] = [i]
+        results[v] = [i];
       }
     }
   }
