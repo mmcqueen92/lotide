@@ -1,31 +1,25 @@
 const takeUntil = function(array, callback) {
   const returnArray = [];
   for (const element of array) {
-    let x = element;
-    if (callback(x) === true)  {
+    if (callback(element))  {
       return returnArray;
-    } else {
-      returnArray.push(element);
     }
+    returnArray.push(element);
   };
   return returnArray;
 };
 
+
 const eqArrays = function(array1, array2) {
-  let output = false;
-  if (array1.length === array2.length) {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] === array2[i]) {
-        output = true;
-      } else {
-        output = false;
-        return output;
-      }
-    }
-  } else {
-    return output;
+  if (array1.length !== array2.length) {
+    return false;
   }
-  return output;
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    } 
+  } 
+  return true;
 };
 
 const assertArraysEqual = function(array1, array2) {
@@ -35,6 +29,7 @@ const assertArraysEqual = function(array1, array2) {
     return console.log(`💀💀💀 Assertion Failed: ${array1} !== ${array2}`);
   }
 };
+
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
 const data3 = ["This", "whole", "array", "should", "remain"];
@@ -46,3 +41,13 @@ const results3 = takeUntil(data3, x => x === 'something that is not in the array
 assertArraysEqual(results1, [1, 2, 5, 7, 2]);
 assertArraysEqual(results2, ["I've", "been", "to", "Hollywood"]);
 assertArraysEqual(results3, ["This", "whole", "array", "should", "remain"]);
+
+    // const takeUntil2 = function(array, callback)  {
+    //   let returnArray = [];
+    //   let index = 0;
+    //   while (!callback(array[index]) && index < array.length) {
+    //     returnArray.push(array[index]);
+    //     index++;
+    //   }
+    //   return returnArray;
+    // };
