@@ -1,14 +1,17 @@
-const assertArraysEqual = require('../assertArraysEqual')
-const tail = require('../tail')
+const tail = require('../tail');
+const assert = require('chai').assert;
 
-const actual1 = tail(["Hello", "Lighthouse", "Labs"]);
-const expected1 = ["Lighthouse", "Labs"]
-assertArraysEqual(actual1, expected1);
-
-const actual2 = tail([1, 2, 3, 4, 5]);
-const expected2 = [2, 3, 4, 5]
-assertArraysEqual(actual2, expected2);
-
-const actual3 = [];
-const expected3 = [];
-assertArraysEqual(actual3, expected3);
+describe("#tail", () => {
+  it('return [2, 3] when passed [1, 2, 3]', () => {
+    const array = [1, 2, 3];
+    const actual = tail(array);
+    const expected = [2, 3];
+    assert.deepEqual(actual, expected);
+  });
+  it('return [] when passed [5]', () => {
+    const array = [5];
+    const actual = tail(array);
+    const expected = [];
+    assert.deepEqual(actual, expected);
+  })
+});
