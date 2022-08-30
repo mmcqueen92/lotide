@@ -18,9 +18,4 @@ const eqArrays = function (array1, array2) {
   return output;
 };
 
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]]));
-console.log(eqArrays([[2, 4], [4]], [[2, 3], [4]]));
-console.log(eqArrays([[2, 3], 4], [[2, 3], [4]]));
-console.log(eqArrays([2, 3, [4]], [[2, 3], [4]]));
-
 module.exports = eqArrays;
